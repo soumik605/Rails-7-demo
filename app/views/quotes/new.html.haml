@@ -1,0 +1,11 @@
+%main.container
+  = link_to sanitize("← Back to quotes"), quotes_path
+  .header
+    %h1 New quote
+
+  -# = turbo_frame_tag "first_turbo_frame" do           ### form in place of link
+  -# = turbo_frame_tag "second_turbo_frame" do          ### form in place of quotes list
+  -# = turbo_frame_tag Quote.new do                     ### form in new place
+  
+  = turbo_frame_tag Quote.new do                    
+    = render "form", quote: @quote

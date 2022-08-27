@@ -1,0 +1,10 @@
+= form_for quote do |f|
+  .quote-box
+    .row.flex-between
+      = f.text_field :name, input_html: { autofocus: true }
+      .row
+        = link_to "Cancel", quotes_path, class: "btn btn--light mr10"
+        = f.submit class: "btn btn--secondary"
+    - if quote.errors.any?
+      .error-message
+        = quote.errors.full_messages.to_sentence.capitalize

@@ -1,0 +1,6 @@
+= turbo_frame_tag quote do
+  .row.flex-between.quote-box
+    = link_to quote.name, quote_path(quote), data: { turbo_frame: "_top" }
+    .row
+      = button_to "Delete",  quote_path(quote),  method: :delete,  class: "btn btn--light mr10" 
+      = link_to "Edit",  edit_quote_path(quote),  class: "btn btn--light" 

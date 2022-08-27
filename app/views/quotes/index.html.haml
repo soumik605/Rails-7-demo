@@ -1,0 +1,13 @@
+%main.container
+  = turbo_frame_tag "first_turbo_frame" do
+    .header
+      %h1 Quotes
+      -# = link_to "New quote", new_quote_path, data: { turbo_frame: "_top" }, class: "btn btn--primary"                     ##### work like without turbo frame
+      -# = link_to "New quote", new_quote_path, class: "btn btn--primary"                                                       ##### search for first_turbo_frame id
+      = link_to "New quote", new_quote_path, data: { turbo_frame: dom_id(Quote.new) }, class: "btn btn--primary"       ##### search for second_turbo_frame id
+    
+  = turbo_frame_tag Quote.new
+
+  -# = turbo_frame_tag "second_turbo_frame" do
+  = turbo_frame_tag "quotes" do
+    = render @quotes 

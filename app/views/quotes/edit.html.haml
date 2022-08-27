@@ -1,0 +1,8 @@
+%main.container
+  = link_to sanitize("← Back to quote"), quote_path(@quote)
+  .header
+    %h1 Edit quote
+  -# = turbo_frame_tag "quote_#{@quote.id}" do                  #### all 3 are same   -> "quote_#{@quote.id}",  dom_id(@quote),  @quote
+  -# = turbo_frame_tag dom_id(@quote) do
+  = turbo_frame_tag @quote do
+    = render "form", quote: @quote
